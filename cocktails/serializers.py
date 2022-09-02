@@ -22,18 +22,21 @@ class CocktailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cocktail
         fields = (
+            "id",
             "name",
             "bartender",
             "ingredients",
             "flavor_profile",
             "description",
-            "method")
+            "method"
+            )
         depth = 1
 
 class IngredientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ingredient
         fields = (
+            "id",
             "name",
             "category",
             "flavor_profile",

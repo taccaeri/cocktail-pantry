@@ -1,32 +1,19 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from cocktails.models import Ingredient, Cocktail, RecipeDetail
-from cocktails.serializers import CocktailSerializer
+from cocktails.serializers import CocktailSerializer, IngredientSerializer
+
+from rest_framework.response import Response
+from rest_framework.renderers import JSONRenderer
+from rest_framework.views import APIView
+from rest_framework import viewsets
 
 
-# Create your views here.
-from django.http import HttpResponse
-from django.http import JsonResponse
+class CocktailViewSet(viewsets.ModelViewSet):
 
-from django.views import View
-from django.views.generic import ListView
-from django.core.serializers import serialize
-from rest_framework import serializers
+    serializer_class = CocktailSerializer
+    queryset = Cocktail.objects.all()
 
+class IngredientViewSet(viewsets.ModelViewSet):
 
-# def index(request):
-#     return HttpResponse("Hello, world. You're at the cocktails index.")
-
-class CocktailsListView(ListView):
-
-    # def get(self, request):
-    #     qs = Cocktail.objects.all()
-    #     data = serialize("json", qs)
-    #     return HttpResponse(data, content_type = "application/json")
-
-#class IngredientsListView(ListView):
-
-    def get(self, request):
-        qs = Cocktail.objects.all()
-        cs = CocktailSerializer("json", qs, many = True)
-        cs.is_valid()
-        return HttpResponse(cs.data, content_type = "application/json")
+    serializer_class = IngredientSerializer
+    queryset = Ingredient.objects.all()

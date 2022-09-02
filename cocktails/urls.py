@@ -7,6 +7,10 @@ from cocktails.models import Ingredient, Cocktail, RecipeDetail
 
 urlpatterns = [
     #path('', views.index, name='index'),
-    path('', views.CocktailsListView.as_view(), name = 'Cocktails'),
-    path('api-auth/', include('rest_framework.urls'))
+    #cocktail urls:
+    path('cocktails/', views.CocktailViewSet.as_view({"get":"list", "post":"create"}), name = 'Cocktails'),
+    path('cocktails/<int:pk>/', views.CocktailViewSet.as_view({"get":"retrieve", "post":"update"})),
+    #ingredient urls:
+    path('ingredients/', views.IngredientViewSet.as_view({"get":"list", "post":"create"}), name = 'Ingredients'),
+    path('ingredients/<int:pk>/', views.IngredientViewSet.as_view({"get":"retrieve", "post":"update"}))
 ]
