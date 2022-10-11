@@ -16,8 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+from rest_framework import routers
+
+from cocktails.views import CocktailViewSet
+
+router = routers.DefaultRouter()
+router.register(r'cocktails', CocktailViewSet)
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('cocktails.urls')),
-    #path('api-auth/', include('rest_framework.urls'))
+    # path('api-auth/', include('rest_framework.urls'))
 ]

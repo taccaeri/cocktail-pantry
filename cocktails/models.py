@@ -52,40 +52,49 @@ UNIT_CHOICES = [
     ('peel', 'peel(s)')
 ]
 
+COCKTAIL_CATEGORY = [
+
+]
+
 
 # Create your models here.
 class Ingredient(models.Model):
-    name = models.CharField(max_length = 100)
-    category = MultiSelectField(choices = INGREDIENT_CATEGORY)
-    flavor_profile = MultiSelectField(choices = TASTING_NOTES, blank = True)
-    description = models.TextField(blank = True)
+    name = models.CharField(max_length=100)
+    category = MultiSelectField(choices=INGREDIENT_CATEGORY)
+    description = models.TextField(blank=True)
 
     def _str__(self):
         return self.name
 
+
 class Cocktail(models.Model):
-    name = models.CharField(max_length = 50)
-    bartender = models.CharField(max_length = 40, blank = True)
+    name = models.CharField(max_length=50)
+    bartender = models.CharField(max_length=40, blank=True)
     ingredients = models.ManyToManyField(
         Ingredient,
-        through = 'RecipeDetail'
+        through='RecipeDetail'
         )
-    flavor_profile = MultiSelectField(choices = TASTING_NOTES, blank = True)
-    description = models.TextField(blank = True)
-    method = models.TextField(blank = True)
+    flavor_profile = MultiSelectField(choices=TASTING_NOTES, blank=True)
+    description = models.TextField(blank=True)
+    method = models.TextField(blank=True)
 
     def __str__(self):
         return self.name
+
 
 class RecipeDetail(models.Model):
     ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
     cocktail = models.ForeignKey(Cocktail, on_delete=models.CASCADE)
     quantity = models.FloatField()
     unit = models.CharField(
-        max_length = 15,
-        choices = UNIT_CHOICES,
-        blank = True
+        max_length=15,
+        choices=UNIT_CHOICES,
+        blank=True
         )
+    recommended = models.CharField(max_length=40, blank=True)
+
+    class Meta:
+        unique_together = ('ingredient', 'cocktail')
 
     def __str__(self):
         return self.ingredient.name

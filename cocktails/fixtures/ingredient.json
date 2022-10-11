@@ -1,0 +1,20 @@
+[
+  {
+    "model": "cocktails.Ingredient",
+    "pk": 500,
+    "fields": {
+      "name": "Lemon",
+      "category": ["garnish", "citrus"],
+      "description": ""
+     }
+  },
+  {
+    "model": "cocktails.Ingredient",
+    "pk": 501,
+    "fields": {
+      "name": "Orange",
+      "category": ["garnish", "citrus"],
+      "description": ""
+     }
+  }
+]

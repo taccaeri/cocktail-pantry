@@ -1,0 +1,17 @@
+[
+  {
+    "model": "cocktails.Cocktail",
+    "pk": 1,
+    "fields": {
+      "name": "Classic Old Fashioned",
+      "bartender": "CLASSIC",
+      "category": ["OF"],
+      "ingredients": [
+
+      ],
+      "flavor_profile": ["boozy"],
+      "description": "cool",
+      "method": "neat"
+    }
+  }
+]

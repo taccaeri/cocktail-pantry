@@ -1,0 +1,11 @@
+[
+  {
+    "model": "cocktails.Ingredient",
+    "pk": 1,
+    "fields": {
+      "name": "Angostura Bitters",
+      "category": ["bitters"],
+      "description": "It's bitter"
+    }
+  }
+]

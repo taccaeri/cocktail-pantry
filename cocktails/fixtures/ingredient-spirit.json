@@ -1,0 +1,12 @@
+[
+
+  {
+    "model": "cocktails.Ingredient",
+    "pk": 300,
+    "fields": {
+      "name": "Bourbon",
+      "category": ["spirit"],
+      "description": ""
+    }
+  }
+]
