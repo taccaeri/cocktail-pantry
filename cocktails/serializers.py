@@ -64,6 +64,7 @@ class CocktailSerializer(serializers.ModelSerializer):
             "name",
             "bartender",
             "ingredients",
+            "glassware",
             "flavor_profile",
             "description",
             "method"

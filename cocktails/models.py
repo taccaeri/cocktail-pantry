@@ -4,12 +4,14 @@ from multiselectfield import MultiSelectField
 INGREDIENT_CATEGORY = [
     ('spirit', 'Spirit'),
     ('liquor', 'Liquor'),
+    ('amari', 'Amari'),
+    ('wine', 'Fortified Wine')
+    ('bitters', 'Bitters'),
     ('sweetener', 'Sweetener'),
     ('citrus', 'Citrus'),
     ('soda', 'Soda'),
     ('emulsifier', 'Emulsifier'),
     ('muddler', 'Muddler'),
-    ('bitters', 'Bitters'),
     ('garnish', 'Garnish'),
     ('concentrate', 'Concentrate'),
     ('infusion', 'Infusion'),
@@ -48,12 +50,26 @@ UNIT_CHOICES = [
     ('barspoon', 'barspoon(s)'),
     ('pinch', 'pinch(es)'),
     ('bunch', 'bunch(es)'),
-    ('twist', 'twist(s)'),
-    ('peel', 'peel(s)')
+    ('slice', 'slice(s)'),
+    ('twist', 'twist'),
+    ('peel', 'peel'),
+    ('wheel', 'wheel'),
+    ('wedge', 'wedge'),
 ]
 
-COCKTAIL_CATEGORY = [
-
+GLASSWARE = [
+    {'SOFG', 'Single Old-Fashioned GLass'},
+    {'DOFG', 'Double Old-Fashioned GLass'},
+    {'coupe', 'Coupe'},
+    {'NN', 'Nick & Nora'},
+    {'martini', 'Martini Glass'},
+    {'collins', 'Collins Glass'},
+    {'beer', 'Beer Glass'},
+    {'fizz', 'Fizz Glass'},
+    {'julep', 'Julep Tin'},
+    {'wine', 'Wine GLass'},
+    {'flute', 'Flute'},
+    {'tiki', 'Tiki Mug'},
 ]
 
 
@@ -74,6 +90,7 @@ class Cocktail(models.Model):
         Ingredient,
         through='RecipeDetail'
         )
+    glassware = MultiSelectField(choices=GLASSWARE)
     flavor_profile = MultiSelectField(choices=TASTING_NOTES, blank=True)
     description = models.TextField(blank=True)
     method = models.TextField(blank=True)
