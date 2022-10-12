@@ -1,2 +1,2 @@
-# cocktail-codex
+# cocktail-pantry
 Simple django web app for cocktails
