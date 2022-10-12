@@ -5,7 +5,7 @@ INGREDIENT_CATEGORY = [
     ('spirit', 'Spirit'),
     ('liquor', 'Liquor'),
     ('amari', 'Amari'),
-    ('wine', 'Fortified Wine')
+    ('wine', 'Fortified Wine'),
     ('bitters', 'Bitters'),
     ('sweetener', 'Sweetener'),
     ('citrus', 'Citrus'),
