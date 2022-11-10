@@ -129,3 +129,6 @@ dmypy.json
 .pyre/
 
 cocktails/migrations/*
+
+# backup
+cocktails/migration_backups/*

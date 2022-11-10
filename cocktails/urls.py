@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views
 
-from cocktails.models import Ingredient, Cocktail, RecipeDetail
+from cocktails.models import Ingredient, Cocktail
 
 
 urlpatterns = [
@@ -12,5 +12,6 @@ urlpatterns = [
     #ingredient urls:
     path('ingredients/', views.IngredientViewSet.as_view({"get":"list", "post":"create"}), name = 'Ingredients'),
     path('ingredients/<int:pk>/', views.IngredientViewSet.as_view({"get":"retrieve", "post":"update", "delete":"destroy"})),
+    path('categories/', views.list_categories)
     # path('list/', views.CocktailViewSet.cocktail_by_bartender, name="Bartender")
 ]

@@ -6,4 +6,4 @@ class CocktailFilter(filters.FilterSet):
 
     class Meta:
         model = Cocktail
-        fields = ['flavor_profile', 'bartender']
+        fields = ['category','bartender']

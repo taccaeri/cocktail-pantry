@@ -24,6 +24,7 @@ router = routers.DefaultRouter()
 router.register(r'cocktails', CocktailViewSet)
 
 urlpatterns = [
+    path('admin/clearcache/', include('clearcache.urls')),
     path('admin/', admin.site.urls),
     path('', include('cocktails.urls')),
     # path('api-auth/', include('rest_framework.urls'))

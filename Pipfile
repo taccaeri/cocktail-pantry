@@ -4,10 +4,17 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "*"
-django-multiselectfield = "*"
+django = "==4.0.6"
+django-multiselectfield = "==0.1.12"
+djangorestframework = "==3.13.1"
+pytz = "*"
+django-filter = "==22.1"
+django-cors-headers = "==3.13.0"
+django-rest-framework = "*"
+django-clearcache = "*"
+pillow = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.8"
+python_version = "3"
