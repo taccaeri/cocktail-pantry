@@ -1,12 +1,10 @@
 import json
 from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
-from cocktails.models import Ingredient, Cocktail, RecipeDetail, INGREDIENT_CATEGORY
-from cocktails.serializers import CocktailSerializer, IngredientSerializer
-from cocktails.filters import CocktailFilter
+from cocktails.models import Ingredient, Cocktail, RecipeDetail, INGREDIENT_CATEGORY, COCKTAIL_CATEGORY, GLASSWARE, UNIT_CHOICES
+from cocktails.serializers import CocktailSerializer, IngredientSerializer, RecipeDetailSerializer
 
 from rest_framework.response import Response
-# from rest_framework.renderers import JSONRenderer
 from rest_framework.views import APIView
 from rest_framework import viewsets, serializers # generics
 from rest_framework.decorators import api_view, renderer_classes
@@ -16,6 +14,7 @@ from django_filters import rest_framework as filters
 
 from pprint import pprint
 
+
 class CocktailViewSet(viewsets.ModelViewSet):
 
     serializer_class = CocktailSerializer
@@ -24,24 +23,31 @@ class CocktailViewSet(viewsets.ModelViewSet):
     # returns all possible cocktails within searched ingredient parameters
     def list(self, request, *args, **kwargs):
         ingredients = self.request.query_params.getlist("ingredient", [])
-        show_related = self.request.query_params.get("show_related")
         # check box for substitutions
-
+        show_related = self.request.query_params.get("show_related")
+        
         if len(ingredients) == 0:
             queryset = self.filter_queryset(Cocktail.objects.all())
         else:
+            # fetch user supplied list of ingredient objects from the Database
             ing = Ingredient.objects.filter(id__in=ingredients)
             ing_expanded = []
+            # do a loop through the ingredients and append related ingredients to our list if show_related
             for ingredient in ing:
                 ing_expanded.append(ingredient.id)
                 if show_related == "true":
                     for i in ingredient.related.all():
                         ing_expanded.append(i.id)
 
-            pprint(ing_expanded)
-
-            ing_filtered = Ingredient.objects.exclude(id__in=ing_expanded)
-            queryset = Cocktail.objects.exclude(ingredients__id__in=ing_filtered)
+            # this creates a list of ingredients we DO NOT want in our dataset
+            # exclude optional ingredients here to allow them into the final filter
+            rec_filtered = RecipeDetail.objects.exclude(ingredient__id__in=ing_expanded).exclude(optional = True)
+            id_list = rec_filtered.values_list("cocktail__id")
+            # this creates a list of cocktails that we CAN NOT create
+            inverse = Cocktail.objects.filter(pk__in=id_list)
+            # subtract the list of cocktails we CAN NOT create from the full list of cocktails
+            # to find the list of cocktails that we can make
+            queryset = Cocktail.objects.all().difference(inverse)
 
         page = self.paginate_queryset(queryset)
         if page is not None:
@@ -62,6 +68,7 @@ class IngredientViewSet(viewsets.ModelViewSet):
 @renderer_classes([JSONRenderer])
 def list_categories(request):
     category_dict = {}
+    # iterate through ingredient categories and expand subcategories
     for ing in INGREDIENT_CATEGORY:
         if(type(ing[1]) is str):
             category_dict[ing[0]] = ing[1]

@@ -1,6 +1,7 @@
 from django.db import models
 from multiselectfield import MultiSelectField
 
+
 INGREDIENT_CATEGORY = [
     ('spirits', 'Spirits'),
     ('modifiers', (
@@ -90,7 +91,6 @@ COCKTAIL_CATEGORY = [
 ]
 
 
-# Create your models here.
 class Ingredient(models.Model):
     name = models.CharField(max_length=100)
     category = MultiSelectField(choices=INGREDIENT_CATEGORY, blank=True)

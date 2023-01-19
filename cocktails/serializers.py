@@ -1,12 +1,28 @@
-from cocktails.models import Ingredient, Cocktail, RecipeDetail, INGREDIENT_CATEGORY
+from cocktails.models import Ingredient, Cocktail, RecipeDetail, INGREDIENT_CATEGORY, COCKTAIL_CATEGORY, GLASSWARE, UNIT_CHOICES
 
 from rest_framework import serializers, fields
+
+import json
 
 
 class RecipeDetailSerializer(serializers.ModelSerializer):
 
     id = serializers.IntegerField(source='ingredient.id')
     ingredient = serializers.ReadOnlyField(source='ingredient.name')
+
+    display_unit = serializers.SerializerMethodField('get_display_unit')
+    unit = str(fields.MultipleChoiceField(choices=UNIT_CHOICES))
+
+    notes = serializers.SerializerMethodField('get_notes')
+
+    def get_notes(self, item):
+        return item.ingredient.notes
+
+    def get_display_unit(self, item):
+        for choice_tuple in UNIT_CHOICES:
+            if choice_tuple[0] == item.unit:
+                return choice_tuple[1]
+        return ''
 
     class Meta:
         model = RecipeDetail
@@ -15,13 +31,44 @@ class RecipeDetailSerializer(serializers.ModelSerializer):
             "ingredient",
             "quantity",
             "unit",
+            "display_unit",
             "recommended",
-            "optional"
+            "optional",
+            "notes"
             ]
 
 
 class CocktailSerializer(serializers.ModelSerializer):
     ingredients = RecipeDetailSerializer(source="recipedetail_set", many=True)
+
+    display_category = serializers.SerializerMethodField('get_display_category')
+    category = fields.MultipleChoiceField(choices=COCKTAIL_CATEGORY)
+    
+    def get_display_category(self, item):
+        display_category_list = []
+        for category in item.category:
+            for category_tuple in COCKTAIL_CATEGORY:
+                if category_tuple[0] == category:
+                    display_category_list.append(category_tuple[1])
+
+        return display_category_list
+
+    display_glassware = serializers.SerializerMethodField('get_display_glassware')
+    glassware = str(fields.MultipleChoiceField(choices=GLASSWARE))
+
+    def get_display_glassware(self, item):
+        for choice_tuple in GLASSWARE:
+            if choice_tuple[0] == item.glassware:
+                return choice_tuple[1]
+
+    variations = serializers.SerializerMethodField('get_variations')
+
+    def get_variations(self, item):
+        # the variation field is a JSON object that has been serialized to a string
+        # do a json.loads here to deserialize it 
+        if(type(item.variations == str) and item.variations != ''):
+         #   print(item.name)
+            return json.loads(item.variations)
 
     def create(self, validated_data):
         ingredients = validated_data.pop("recipedetail_set", [])
@@ -63,10 +110,12 @@ class CocktailSerializer(serializers.ModelSerializer):
             "id",
             "name",
             "category",
+            "display_category",
             "related",
             "bartender",
             "ingredients",
             "glassware",
+            "display_glassware",
             "notes",
             "method",
             "variations"
@@ -111,41 +160,7 @@ class IngredientSerializer(serializers.ModelSerializer):
             "id",
             "name",
             "category",
+            "display_category",
             "related",
-            "notes",
-            "display_category"
+            "notes"
             ]
-
-
-class DateBeforeValidator:
-    """
-    Validator for checking if a start date is before an end date field.
-    Implementation based on `UniqueTogetherValidator` of Django Rest Framework.
-    """
-    message = ('{start_date_field} should be before {end_date_field}.')
-
-    def __init__(self, start_date_field="start_date", end_date_field="end_date", message=None):
-        self.start_date_field = start_date_field
-        self.end_date_field = end_date_field
-        self.message = message or self.message
-
-    def __call__(self, attrs):
-        if attrs[self.start_date_field] > attrs[self.end_date_field]:
-            message = self.message.format(
-                                        start_date_field=self.start_date_field,
-                                        end_date_field=self.end_date_field,
-                                        )
-            # Replace the following line with
-            #   raise serializers.ValidationError(
-            #       {self.end_date_field: message},
-            #       code='date_before',
-            #   )
-            # if you want to raise the error on the field level
-            raise serializers.ValidationError(message, code='date_before')
-
-    def __repr__(self):
-        return '<%s(start_date_field=%s, end_date_field=%s)>' % (
-            self.__class__.__name__,
-            smart_repr(self.start_date_field),
-            smart_repr(self.end_date_field)
-        )
