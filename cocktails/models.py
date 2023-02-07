@@ -3,7 +3,16 @@ from multiselectfield import MultiSelectField
 
 
 INGREDIENT_CATEGORY = [
-    ('spirits', 'Spirits'),
+    ('spirits', (
+        ('gin', 'Gin'),
+        ('rum', 'Rum'),
+        ('agave', 'Agave'),
+        ('whisky', 'Whisk(e)y'),
+        ('brandy', 'Brandy'),
+        ('aquavit', 'Aquavit'),
+        ('etc', 'Etc'),
+        )
+    ),
     ('modifiers', (
         ('liqueur', 'Liqueur'),
         ('amaro', 'Amaro'),
@@ -11,16 +20,16 @@ INGREDIENT_CATEGORY = [
         )
     ),
     ('bitters', 'Bitters'),
-    ('sweetener', 'Sweetener'),
-    ('citrus', 'Citrus'),
+    ('sweeteners', 'Sweeteners'),
     ('toppers', 'Toppers'),
-    ('emulsifier', 'Emulsifier'),
-    ('muddler', 'Muddler'),
-    ('garnish', 'Garnish'),
-    ('other', (
-        ('concentrate', 'Concentrate'),
-        ('infusion', 'Infusion'),
-        ('cordial', 'Cordial'),
+    ('emulsifiers', 'Emulsifiers'),
+    ('dry', 'Dry'),
+    ('fresh', 'Fresh'),
+    ('other', 'Other'),
+    ('concoctions', (
+        ('concentrates', 'Concentrates'),
+        ('infusions', 'Infusions'),
+        ('cordials', 'Cordials'),
         ('solutions', 'Solutions'),
         ('tinctures', 'Tinctures'),
         ('puree', 'Purees'),
@@ -44,7 +53,10 @@ UNIT_CHOICES = [
     ('wheel', 'wheel'),
     ('wedge', 'wedge'),
     ('rinse', 'rinse'),
-    ('rim', 'rim')
+    ('rim', 'rim'),
+    ('drop', 'drop(s)'),
+    ('sprig', 'sprig'),
+    ('bqt', 'bouquet')
 ]
 
 GLASSWARE = [
@@ -61,7 +73,8 @@ GLASSWARE = [
     ('flute', 'Flute'),
     ('tiki', 'Tiki Mug'),
     ('HB', 'Highball'),
-    ('snif', 'Snifter')
+    ('snif', 'Snifter'),
+    ('tea', 'Tea Cup')
 ]
 
 COCKTAIL_CATEGORY = [
@@ -72,8 +85,8 @@ COCKTAIL_CATEGORY = [
     ('rum-ST', 'Rum Stirred'),
     ('agave-SH', 'Agave Shaken'),
     ('agave-ST', 'Agave Stirred'),
-    ('whi-SH', 'Whiskey Shaken'),
-    ('whi-ST', 'Whiskey Stirred'),
+    ('whi-SH', 'Whisk(e)y Shaken'),
+    ('whi-ST', 'Whisk(e)y Stirred'),
     ('bra-SH', 'Brandy Shaken'),
     ('bra-ST', 'Brandy Stirred'),
     ('SC', 'Sparkling Cocktail'),
@@ -83,8 +96,9 @@ COCKTAIL_CATEGORY = [
     ('fizz', 'Flips and Fizzes'),
     ('swiz', 'Swizzles'),
     ('aqua', 'Aquavit'),
-    ('Saz-V', 'Sazerac Variation'),
-    ('Neg-V', 'Negroni Variation'),
+    ('mar-V', 'Martini Variation'),
+    ('saz-V', 'Sazerac Variation'),
+    ('neg-V', 'Negroni Variation'),
     ('daq-V', 'Daiquiri Variation'),
     ('man-V', 'Manhattan Variation'),
     ('OF-V', 'Old Fashioned Variation')
@@ -100,6 +114,7 @@ class Ingredient(models.Model):
                                 blank=True,
                                 related_name='related_ingredient',
                                 )
+    method = models.TextField(blank=True)
     notes = models.TextField(blank=True)
 
     def _str__(self):

@@ -1,7 +1,7 @@
 import json
 from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
-from cocktails.models import Ingredient, Cocktail, RecipeDetail, INGREDIENT_CATEGORY, COCKTAIL_CATEGORY, GLASSWARE, UNIT_CHOICES
+from cocktails.models import Ingredient, Cocktail, RecipeDetail, INGREDIENT_CATEGORY, COCKTAIL_CATEGORY
 from cocktails.serializers import CocktailSerializer, IngredientSerializer, RecipeDetailSerializer
 
 from rest_framework.response import Response
@@ -70,6 +70,22 @@ def list_categories(request):
     category_dict = {}
     # iterate through ingredient categories and expand subcategories
     for ing in INGREDIENT_CATEGORY:
+        if(type(ing[1]) is str):
+            category_dict[ing[0]] = ing[1]
+        elif(type(ing[1]) is tuple):
+            sub_cat_dict = {}
+            for sub_category in ing[1]:
+                sub_cat_dict[sub_category[0]] = sub_category[1]
+            category_dict[ing[0]] = sub_cat_dict
+
+    return Response(category_dict)
+
+@api_view(["GET"])
+@renderer_classes([JSONRenderer])
+def list_cocktail_categories(request):
+    category_dict = {}
+    # iterate through ingredient categories and expand subcategories
+    for ing in COCKTAIL_CATEGORY:
         if(type(ing[1]) is str):
             category_dict[ing[0]] = ing[1]
         elif(type(ing[1]) is tuple):

@@ -162,5 +162,6 @@ class IngredientSerializer(serializers.ModelSerializer):
             "category",
             "display_category",
             "related",
+            "method",
             "notes"
             ]
