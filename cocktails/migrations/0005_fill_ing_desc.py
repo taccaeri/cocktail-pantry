@@ -10,8 +10,34 @@ def fill_ing(apps, schema_editor):
     db_alias = schema_editor.connection.alias
 
     ing_list = [
-        # {"name":"", "rel":"", "note":""},
-
+        # {"name":"", "rel":"", "note":"", "method":""},
+        
+        # Spirits:
+        # Gin:
+        {
+        "name":"Gin",
+        "rel":["Plymouth Gin", "London Dry Gin", "Old Tom Gin"],
+        "note":"Neutral grain spirit, distilled water, and botanicals. Originally from Holland, gin is now made all over the world. Most major gin brands are distilled in the United Kingdom, with a growing roster of independent brands in the United States."
+        },
+        {
+        "name":"Plymouth Gin",
+        "rel":["Gin"],
+        "note":"A gentle, citrus-forward style of gin similar to the traditional London dry gins, with a ABV of 41.22%. Distilled in a single distillery in Plymouth, England."
+        },
+        {
+        "name":"London Dry Gin",
+        "rel":["Gin"],
+        "note":"A big, crisp, high-proof, and aggressive style of gin with prominent flavors of juniper and citrus. Widely considered the benchmark for all other gin styles."
+        },
+        {
+        "name":"Old Tom Gin",
+        "rel":["Gin"],
+        "note":"London dry's predecessor, with a similar juniper-forward flavor but richer body and sweeter flavor profile. Most old cocktail recipes that call for gin are actually referring to the Old Tom style."
+        },
+        {
+        "name":"Genever",
+        "note":"The grandfather of all gin, created by the Dutch as a delivery system for juniper, which was thought to offer protection from the plague. Distilled from a base of malted-barely wine, then redistilled with botanicals. The flavor profile is sweeter and richer than any other style of gin."
+        },
         # Modifiers:
         # Fortified Wine:
         {
@@ -64,7 +90,7 @@ def fill_ing(apps, schema_editor):
         },
         {
         "name":"Cinnamon Syrup",
-        "rel":["Cinnamon"],
+        "rel":["Cinnamon Stick"],
         "method":"Steep cinnamon sticks in simple syrup overnight (mild, somewhat bitter syrup) or boil simple syrup and cinnamon sticks together (pungent flavor but on the sweeter side). Refrigerate up to 2 weeks."
         },
 
@@ -101,7 +127,7 @@ def fill_ing(apps, schema_editor):
         "method":"Mix ground chipotle and salt.",
         },
         {
-        "name":"Cinnamon",
+        "name":"Cinnamon Stick",
         "rel":["Cinnamon Syrup"]
         },
 
@@ -139,6 +165,10 @@ def fill_ing(apps, schema_editor):
         "rel":["Grapefruit"]
         },
         {
+        "name":"Ginger",
+        "rel":["Ginger Syrup"]
+        },
+        {
         "name":"Celery",
         "rel":["Fresh Celery Juice"]
         },
@@ -155,8 +185,44 @@ def fill_ing(apps, schema_editor):
         "rel":["Cantaloupe"]
         },
         {
-        "name":"Ginger",
-        "rel":["Ginger Syrup"]
+        "name":"Apple",
+        "rel":["Fresh Apple Juice"]
+        },
+        {
+        "name":"Fresh Apple Juice",
+        "rel":["Apple"]
+        },
+        {
+        "name":"Peach",
+        "rel":["Nectarine"]
+        },
+        {
+        "name":"Nectarine",
+        "rel":["Peach"]
+        },
+        {
+        "name":"Carrot",
+        "rel":["Fresh Carrot Juice"]
+        },
+        {
+        "name":"Fresh Carrot Juice",
+        "rel":["Carrot"]
+        },
+        {
+        "name":"Watermelon",
+        "rel":["Fresh Watermelon Juice"]
+        },
+        {
+        "name":"Fresh Watermelon Juice",
+        "rel":["Watermelon"]
+        },
+        {
+        "name":"Pineapple",
+        "rel":["Fresh Pineapple Juice"]
+        },
+        {
+        "name":"Fresh Pineapple Juice",
+        "rel":["Pineapple"]
         },
 
         # Concoctions:

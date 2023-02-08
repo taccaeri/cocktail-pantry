@@ -11,20 +11,55 @@ def populate_cocktail(apps, schema_editor):
     coc_list = [
         # {"name":"", "cat":"", "bar":"", "glass":""},
 
+        # Gin Shaken:
+        {"name":"Bella Luna", "cat":"gin-SH", "bar":"Brian Miller", "glass":"port"},   
+
+        # Gin Stirred:
+        {"name":"European Union", "cat":"gin-ST", "bar":"Alex Day", "glass":"coupe"},
+
+        # Rum Shaken:
+        {"name":"Flor de Jerez", "cat":"rum-SH", "bar":"Joaquín Simó", "glass":"coupe"},
+
+        # Rum Stirred:
+        {"name":"Arrack Strap", "cat":"rum-ST", "bar":"Brad Farran", "glass":"double"}, 
+
         # Agave Shaken:
-        {"name":"Ghost of Mazagran", "cat":"agave-SH", "glass":"tea"},         
+        {"name":"Ghost of Mazagran", "cat":"agave-SH", "glass":"tea"}, 
+        {"name":"Almond Brother", "cat":"agave-SH", "bar":"Jason Littrell", "glass":"coupe"},
+
+        # Agave Stirred: 
+        {"name":"Coralillo", "cat":"agave-ST", "bar":"Thomas Waugh", "glass":"coupe"},
 
         # Whisk(e)y Shaken:
         {"name":"Ginger Man", "cat":"whi-SH", "bar":"Tyson Buhler", "glass":"coupe"},
+        {"name":"19th Century", "cat":"whi-SH", "bar":"Brian Miller", "glass":"coupe"},
 
-        # Sparkling Cocktail:
+        # Whisk(e)y Stirred:
+        {"name":"The Dangerous Summer", "cat":"whi-ST", "bar":"Joaquín Simó", "glass":"martini"},
+
+        # Brandy Shaken:
+        {"name":"Enchanted Orchard", "cat":"bra-SH", "bar":"Joaquín Simó", "glass":"double"},       
+
+        # Brandy Stirred:
+
+        # Sparkling Cocktails:
         {"name":"Champagne Cocktail", "cat":["classic", "OF-V", "SC"], "glass":"flute"},
         {"name":"The Field Marshall", "cat":["OF-V", "SC"], "bar": "Alex Day", "glass":"flute"},
         {"name":"Pretty Wings", "cat":["OF-V", "SC"], "bar": "Devon Tarby", "glass":"flute"},
         {"name":"Celebrate", "cat":["OF-V", "SC"], "bar": "Devon Tarby", "glass":"flute"},
+
+        # Fortified Wine Cocktails:
+
+        # Punch:
         
         # Julep:   
         {"name":"Mint Julep", "cat":["classic", "jul"], "glass":"julep"},
+
+        # Flips and Fizzes:
+
+        # Swizzles:
+
+        # Aquavit:
 
         # Martini and variants:
         {"name":"Classic Martini", "cat":["classic", "mar-V"], "glass":"martini"},
@@ -32,10 +67,14 @@ def populate_cocktail(apps, schema_editor):
         # Sazerac and variants: 
         {"name":"Sazerac", "cat":"classic", "glass":"single"},
 
+        # Negroni and variants:
+
         # Daiquiri and variants:
         {"name":"Classic Daiquiri", "cat":"classic", "glass":"coupe"},
         {"name":"D.W.B.", "cat":"daq-V", "glass":"coupe"},
         {"name":"Rumor Mill", "cat":["daq-V", "SC"], "bar":"Jarred Weigand", "glass":"flute"},
+
+        # Manhattan and variants:
 
         # Old Fashioned and variants:
         {"name":"Classic Old Fashioned", "cat":"classic", "glass":"single"},

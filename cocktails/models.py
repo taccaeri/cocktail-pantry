@@ -8,14 +8,15 @@ INGREDIENT_CATEGORY = [
         ('rum', 'Rum'),
         ('agave', 'Agave'),
         ('whisky', 'Whisk(e)y'),
-        ('brandy', 'Brandy'),
+        ('A-brandy', 'Aged Brandy'),
+        ('UA-brandy', 'Unaged Brandy'),
         ('aquavit', 'Aquavit'),
-        ('etc', 'Etc'),
+        ('vodka', 'Vodka'),
         )
     ),
     ('modifiers', (
         ('liqueur', 'Liqueur'),
-        ('amaro', 'Amaro'),
+        ('amari', 'Amari'),
         ('wine', 'Fortified Wine'),
         )
     ),
@@ -89,7 +90,7 @@ COCKTAIL_CATEGORY = [
     ('whi-ST', 'Whisk(e)y Stirred'),
     ('bra-SH', 'Brandy Shaken'),
     ('bra-ST', 'Brandy Stirred'),
-    ('SC', 'Sparkling Cocktail'),
+    ('SC', 'Sparkling Cocktails'),
     ('FWC', 'Fortified Wine Cocktails'),
     ('punch', 'Punch'),
     ('jul', 'Julep'),
@@ -107,6 +108,7 @@ COCKTAIL_CATEGORY = [
 
 class Ingredient(models.Model):
     name = models.CharField(max_length=100)
+    altname = models.CharField(max_length=100)
     category = MultiSelectField(choices=INGREDIENT_CATEGORY, blank=True)
     related = models.ManyToManyField(
                                 "self",

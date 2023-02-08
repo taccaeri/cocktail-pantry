@@ -17,12 +17,55 @@ def fill_coc(apps, schema_editor):
         # "var":""
         # },
 
+        # Gin Shaken:
+        {
+        "name":"Bella Luna",
+        "rel":"",
+        "met":"Shake all the ingredients with ice, then strain into a port glass. No garnish."
+        },
+
+        # Gin Stirred:
+        {
+        "name":"European Union",
+        "rel":"",
+        "note":"The sweetness of the Old Tom gin is softened by calvados in this Martinez variation. -AD",
+        "met":"Stir all ingredients over ice, then strain into a coupe. No garnish."
+        },
+
+        # Rum Shaken:
+        {
+        "name":"Flor de Jerez",
+        "rel":"",
+        "note":"Apricots are such a frustrating fresh fruit towork with because they're so inconsistent. That's why I use a good apricot liqueur in this drink instead. I was after a light-bodied cocktail that shone forth with fruit and nuts yet remain dry and refreshing. -JS",
+        "met":"Shake all the ingredients with ice, then strain into a coupe. No garnish."
+        },
+
+        # Rum Stirred:
+        {
+        "name":"Arrack Strap",
+        "rel":"",
+        "note":"One of the best ways to combat arrack is by balancing it with another strong flavor, in this case Black Strap rum. -BF",
+        "met":"Stir all ingredients over ice, then strain into an double rocks glass over 1 large ice cube. Garnish with the orange twist."
+        },
+
         # Agave Shaken:
         {
         "name":"Ghost of Mazagran",
         "rel":"",
         "note":"A recreation of a cocktail served at Fancy Radish in DC.",
         "met":"Dry shake all ingredients first (except chipotle salt and bitters), then shake with ice. Strain and serve in a tea cup. Garnish with a pinch of chipotle salt and xocolatl mole bitters."
+        },
+        {
+        "name":"Almond Brother",
+        "rel":"",
+        "met":"Shake all the ingredients with ice, then strain into a coupe. No garnish."
+        },
+
+        # Agave Stirred:
+        {
+        "name":"Coralillo",
+        "rel":"",
+        "met":"Stir all the ingredients over ice, then strain into a coupe. Garnish with the apple slice."
         },
 
         # Whisk(e)y Shaken:
@@ -32,6 +75,28 @@ def fill_coc(apps, schema_editor):
         "note":"I love finding ways to take aggressive or esoteric spirits and make them approachable to all drinkers, and this simple spec does just that. Malt whiskey and melon are a dream pairing, and the spicy ginger is powerful enough to stand up to the Islay scotch and lends a familiar flavor profile. -TB",
         "met":"Shake all the ingredients with ice, then double strain into a chilled coupe. No garnish."
         },
+        {
+        "name":"19th Century",
+        "rel":"",
+        "met":"Shake all the ingredients with ice, then strain into a coupe. No garnish."
+        },
+
+        # Whisk(e)y Stirred:
+        {
+        "name":"The Dangerous Summer",
+        "rel":"",
+        "note":"The stirred variation of the classic Blood and Sand is named after a Hemingway book about bullfighters. The rich Cherry Heering is replaced with dry cherry brandy and the orange juice with blood orange liqueur. -JS",
+        "met":"Stir all the ingredients (except the orange twist) over ice, then strain into a martini glass. Flame the orange twist over the drink and discard. No garnish."
+        },
+
+        # Brandy Shaken:
+        {
+        "name":"Enchanted Orchard",
+        "rel":"",
+        "met":"Shake all the ingredients with ice, then strain into a double tocks glass over 1 large ice cube. Garnish with the cinnamon stick."
+        },
+
+        # Brandy Stirred:
 
         # Sparkling Cocktail:
         {
@@ -59,12 +124,22 @@ def fill_coc(apps, schema_editor):
         "met":"Stir all the ingredients (except the Champagne) over ice, then strain into a chilled flute. Pour in the Champagne and quickly dip the barspoon into the glass to mix gently. No garnish."
         },
 
+        # Fortified Wine Cocktails:
+
+        # Punch:
+
         # Julep:
         {
         "name":"Mint Julep",
         "rel":"",
         "met":"Rub the interior of a Julep tin with the mint bouquet, then set the mint aside. Add the bourbon and syrup and fill the tin halfway with crushed ice. Holding the tin by the rim, stir, churning the ice as you go, for about 10 seconds. Add more crushed ice to fill the tin about two-thirds full and stir until the tin is completely frosted. Add more ice to form a cone above the rim. Farnish with the mint bouquet and serve with a straw."
         },
+
+        # Flips and Fizzes:
+
+        # Swizzles:
+
+        # Aquavit:
 
         # Martini and variants:
         {
@@ -77,6 +152,8 @@ def fill_coc(apps, schema_editor):
                "My ideal martini: 2 1/2 oz gin to 3/4 oz Dolin dry vermouth. Optional bitters."])
         },
 
+        # Negroni and variants:
+        
         # Sazeerac and variants:
         {
         "name":"Sazerac",
@@ -109,6 +186,8 @@ def fill_coc(apps, schema_editor):
         "note":"Celery juice gives this Daiquiri variation its awesome texture. When I started developing the drink it tasted muddy, so I added some dry vermouth to bind the flavors and clean it up. It's amazing what a little dry or blanc vermouth can do to a cocktail. -JW",
         "met":"Pour the sparkling wine into a chilled flute. Shake the remaining ingredients with ice, then double strain into the flute. No garnish."
         },
+
+        # Manhattan and variants:
 
          # Old Fashioned and variants:
         {
