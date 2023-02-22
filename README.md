@@ -2,7 +2,8 @@
 
 A simple Django web app for cocktails.
 
-Frontend github: **[link](https://github.com/taccaeri/cocktail-pantry-client.git)**
+Frontend github: **[Cocktail Database Client](https://github.com/taccaeri/cocktail-pantry-client.git)**
 
-Website available at **[link](cocktails.taccaeri.com)** 
+Website available at **[Cocktail Database](cocktails.taccaeri.com)** 
+
 Compatible only with PC browsers (for now). 
