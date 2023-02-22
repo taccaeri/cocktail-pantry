@@ -12,38 +12,30 @@ def fill_ing(apps, schema_editor):
     ing_list = [
         # {"name":"", "rel":"", "note":"", "method":""},
         
-        # Spirits:
-        # Gin:
-        {
-        "name":"Gin",
-        "rel":["Plymouth Gin", "London Dry Gin", "Old Tom Gin"],
-        "note":"Neutral grain spirit, distilled water, and botanicals. Originally from Holland, gin is now made all over the world. Most major gin brands are distilled in the United Kingdom, with a growing roster of independent brands in the United States."
-        },
-        {
-        "name":"Plymouth Gin",
-        "rel":["Gin"],
-        "note":"A gentle, citrus-forward style of gin similar to the traditional London dry gins, with a ABV of 41.22%. Distilled in a single distillery in Plymouth, England."
-        },
-        {
-        "name":"London Dry Gin",
-        "rel":["Gin"],
-        "note":"A big, crisp, high-proof, and aggressive style of gin with prominent flavors of juniper and citrus. Widely considered the benchmark for all other gin styles."
-        },
-        {
-        "name":"Old Tom Gin",
-        "rel":["Gin"],
-        "note":"London dry's predecessor, with a similar juniper-forward flavor but richer body and sweeter flavor profile. Most old cocktail recipes that call for gin are actually referring to the Old Tom style."
-        },
-        {
-        "name":"Genever",
-        "note":"The grandfather of all gin, created by the Dutch as a delivery system for juniper, which was thought to offer protection from the plague. Distilled from a base of malted-barely wine, then redistilled with botanicals. The flavor profile is sweeter and richer than any other style of gin."
-        },
         # Modifiers:
+
+        # Liqueur:
+        {
+        "name":"Orange Liqueur",
+        "rel":["Milk & Honey House Curacao"]
+        },
+        {
+        "name":"Milk & Honey House Curacao",
+        "rel":["Orange Liqueur"],
+        "method":"1:1 Grand Marnier and Simple Syrup. Place the Grand Marnier and syrup in a bowl and stir to combine. Refrigerate up to 6 months."
+        },
+        {
+        "name":"Elderflower Liqueur",
+        "rel":["Cardamom-Infused St-Germain"]
+        },
+
         # Fortified Wine:
         {
         "name":"Cocchi Americano",
         "rel":["Chamomile-Infused Cocchi Americano"]
         },
+
+
         # Sweetener:
         {
         "name":"Granulated Sugar",
@@ -75,12 +67,7 @@ def fill_ing(apps, schema_editor):
         "method":"Mixture of 2:1 cane sugar (often labeled 'evaporated cane juice') and water. Combine in blender or stir constantly over medium heat (do not boil) until the sugar is dissovled. Refrigerate up to 2 weeks."
         },
         {
-        "name":"Honey",
-        "rel":["Honey Syrup"]
-        },
-        {
         "name":"Honey Syrup",
-        "rel":["Honey"],
         "method":"In a bottle or other container witha a tight lid, combine 2 cups of (acacia) honey with 1 cup of warm water. Shake vigorously until the honey is dissolved."
         },
         {
@@ -93,17 +80,32 @@ def fill_ing(apps, schema_editor):
         "rel":["Cinnamon Stick"],
         "method":"Steep cinnamon sticks in simple syrup overnight (mild, somewhat bitter syrup) or boil simple syrup and cinnamon sticks together (pungent flavor but on the sweeter side). Refrigerate up to 2 weeks."
         },
+        {
+        "name":"Orgeat",
+        "note":"Orgeat is an almond-based syrup that has been part of cocktail culture since the mid-nineteenth century. It's a key ingredients in the vintage Japanese Cocktail (brandy, orgeat, and Angostura bitters) and especially the Mai Tai and its tiki brethren. Made primarily from water and almongs, along with other ingredients such as orange flower water and cognac, it has a unique flavor that's more than the sum of its ingredients. It deepens the flavors of other ingredients and bridges magically between refreshing and savory.",
+        "method":"12 oz toasted almong milk, 16 oz fine sugar, 2 1/2 tsp Pierre Ferrand Ambre Cognac, 1/4 tsp Rose Water. In a sauce pan, combine the almong milk and sugar. Cook over medium-low heat, stirring occasionally and without bringing to a boil, until the sugar is dissolved. Remove from the heat and stir in the cognac, amaretto, and rose water. Store in the refrigerator for up to one month."
+        },
+        {
+        "name":"Grenadine",
+        "method":"In a saucepan, combine 4:3 ratio of organic unfilteresd, unsweetened pomegranate juice and organic cane sugar. Cook over medium heat, stirring constantly and withoutbringing to a boil, until the sugar is dissolved. Remove from the heat and let cool at room temperature. Transfer to a container and stir in 6 oz pomegranate molasses. Squeeze 8 half-dollar-size orange twists over the surface, discarding the twists and stir well. Store in the refrigerator for up to 2 weeks."
+        },
+        # {
+        # "name":"Vanilla Syrup",
+        # "method":"Split 1 Tahitan vanilla bean in half lengthwise and put it in a saucepan. Add 2 cups of water and 2 cups of fine sugar. Bring to a boil, stirring occasionally. Lower the heat, cover, and simmer gently for 4 minutes. Remove from heat and let stand overnight. Strain through a cheesecloth-lined sieve."
+        # },
+
 
         # Bitters:
         {
         "name":"Orange Bitters",
-        "rel":["Death&Co House Orange Bitters"]
+        "rel":["Death & Co House Orange Bitters"]
         },
         {
-        "name":"Death&Co House Orange Bitters",
+        "name":"Death & Co House Orange Bitters",
         "rel":["Orange Bitters"],
         "method":"Equal parts Fee Brothers West Indian orange bitters, Angostura orange bitters, and Regans' orange bitters. Combine in a bowl."
         },
+
 
         # Emulsifiers:
         {
@@ -114,6 +116,16 @@ def fill_ing(apps, schema_editor):
         "name":"Aquafaba",
         "rel":["Egg White"],
         "method": "Drain a can of chickpeas and reserve the liquid (recommended) or use leftover cooking liquid from boiling chickpeas (not as reliable). Whip aquafaba with stand or hand mixer for 3-6 minutes. Throw in some cream of tartar for easier whipping."
+        },
+
+        # Toppers:
+        {
+        "name":"Dry Sparkling Wine",
+        "rel":["Dry Champagne"]
+        },
+        {
+        "name":"Dry Champagne",
+        "rel":["Dry Sparkling Wine"]
         },
 
         # Dry:
@@ -131,43 +143,123 @@ def fill_ing(apps, schema_editor):
         "rel":["Cinnamon Syrup"]
         },
 
+
         # Fresh:
         {
         "name":"Lemon",
-        "rel":["Fresh Lemon Juice"]
+        "rel":["Fresh Lemon Juice", "Lemon Twist", "Lemon Wheel", "Lemon Peel", "Lemon Wedge"]
         },
         {
         "name":"Fresh Lemon Juice",
         "rel":["Lemon"]
         },
         {
+        "name":"Lemon Twist",
+        "rel":["Lemon"]
+        },
+        {
+        "name":"Lemon Wheel",
+        "rel":["Lemon"]
+        },
+        {
+        "name":"Lemon Peel",
+        "rel":["Lemon"]
+        },
+        {
+        "name":"Lemon Wedge",
+        "rel":["Lemon"]
+        },
+
+        {
         "name":"Lime",
-        "rel":["Fresh Lime Juice"]
+        "rel":["Fresh Lime Juice", "Lime Twist", "Lime Wheel", "Lime Peel", "Lime Wedge"]
         },
         {
         "name":"Fresh Lime Juice",
         "rel":["Lime"]
         },
         {
+        "name":"Lime Twist",
+        "rel":["Lime"]
+        },
+        {
+        "name":"Lime Wheel",
+        "rel":["Lime"]
+        },
+        {
+        "name":"Lime Peel",
+        "rel":["Lime"]
+        },
+        {
+        "name":"Lime Wedge",
+        "rel":["Lime"]
+        },
+
+        {
         "name":"Orange",
-        "rel":["Fresh Orange Juice"]
+        "rel":["Fresh Orange Juice", "Orange Twist", "Orange Wheel", "Orange Peel", "Orange Slice"]
         },
         {
         "name":"Fresh Orange Juice",
         "rel":["Orange"]
         },
         {
+        "name":"Orange Twist",
+        "rel":["Orange"]
+        },
+        {
+        "name":"Orange Wheel",
+        "rel":["Orange"]
+        },
+        {
+        "name":"Orange Peel",
+        "rel":["Orange"]
+        },
+        {
+        "name":"Orange Slice",
+        "rel":["Orange"]
+        },
+
+        {
         "name":"Grapefruit",
-        "rel":["Fresh Grapefruit Juice"]
+        "rel":["Fresh Grapefruit Juice", "Grapefruit Twist", "Grapefruit Wheel", "Grapefruit Peel"]
         },
         {
         "name":"Fresh Grapefruit Juice",
         "rel":["Grapefruit"]
         },
         {
+        "name":"Grapefruit Twist",
+        "rel":["Grapefruit"]
+        },
+        {
+        "name":"Grapefruit Wheel",
+        "rel":["Grapefruit"]
+        },
+        {
+        "name":"Grapefruit Peel",
+        "rel":["Grapefruit"]
+        },
+
+        {
         "name":"Ginger",
         "rel":["Ginger Syrup"]
         },
+
+        {
+        "name":"Mint",
+        "rel":["Mint Bouquet", "Mint Sprig"]
+        },
+        {
+        "name":"Mint Bouquet",
+        "rel":["Mint"]
+        },
+        {
+        "name":"Mint Sprig",
+        "rel":["Mint"]
+        },
+        
+
         {
         "name":"Celery",
         "rel":["Fresh Celery Juice"]
@@ -176,6 +268,7 @@ def fill_ing(apps, schema_editor):
         "name":"Fresh Celery Juice",
         "rel":["Celery"]
         },
+
         {
         "name":"Cantaloupe",
         "rel":["Fresh Cantaloupe Juice"]
@@ -184,38 +277,37 @@ def fill_ing(apps, schema_editor):
         "name":"Fresh Cantaloupe Juice",
         "rel":["Cantaloupe"]
         },
+
         {
         "name":"Apple",
-        "rel":["Fresh Apple Juice"]
+        "rel":["Fresh Apple Juice", "Apple Slice"]
         },
         {
         "name":"Fresh Apple Juice",
         "rel":["Apple"]
         },
         {
-        "name":"Peach",
-        "rel":["Nectarine"]
+        "name":"Apple Slice",
+        "rel":["Apple"]
         },
-        {
-        "name":"Nectarine",
-        "rel":["Peach"]
-        },
-        {
-        "name":"Carrot",
-        "rel":["Fresh Carrot Juice"]
-        },
-        {
-        "name":"Fresh Carrot Juice",
-        "rel":["Carrot"]
-        },
-        {
-        "name":"Watermelon",
-        "rel":["Fresh Watermelon Juice"]
-        },
-        {
-        "name":"Fresh Watermelon Juice",
-        "rel":["Watermelon"]
-        },
+
+        # {
+        # "name":"Carrot",
+        # "rel":["Fresh Carrot Juice"]
+        # },
+        # {
+        # "name":"Fresh Carrot Juice",
+        # "rel":["Carrot"]
+        # },
+        # {
+        # "name":"Watermelon",
+        # "rel":["Fresh Watermelon Juice"]
+        # },
+        # {
+        # "name":"Fresh Watermelon Juice",
+        # "rel":["Watermelon"]
+        # },
+
         {
         "name":"Pineapple",
         "rel":["Fresh Pineapple Juice"]
@@ -225,13 +317,52 @@ def fill_ing(apps, schema_editor):
         "rel":["Pineapple"]
         },
 
+        {
+        "name":"Cucumber",
+        "rel":["Cucumber Spear", "Cucumber Wheel"]
+        },
+        {
+        "name":"Cucumber Spear",
+        "rel":["Cucumber"]
+        },
+        {
+        "name":"Cucumber Wheel",
+        "rel":["Cucumber"]
+        },
+
+        {
+        "name":"Peach",
+        "rel":["Peach Slice"]
+        },
+        {
+        "name":"Peach Slice",
+        "rel":["Peach"]
+        },
+
+        {
+        "name":"Nectarine",
+        "rel":["Nectarine Slice"]
+        },
+        {
+        "name":"Nectarine Slice",
+        "rel":["Nectarine"]
+        },
+
+
         # Concoctions:
+
         # Infusions:
         {
         "name":"Chamomile-Infused Cocchi Americano",
         "rel":["Cocchi Americano"],
         "method":"Place the Cocchi Americano (750 ml) and the 5 grams of chamomile flowers in a bowl and stir to combine. Let stand at room temperature for 1 hour, stirring occasionally. Strain through a fine-mesh sieve lined with several layers of cheesecloth, then funnel back into the original bottle and refrigerate up to 3 months."
         },
+        {
+        "name":"Cardamom-Infused St-Germain", 
+        "rel":["Elderflower Liqueur"],
+        "method":"1 (750 ml) bottle St-Germain. 10 grams green cardamom pods. Place the St-Germain and cardamom in a bowl and stir to combine. Let stand at room temperature for about 12 hours. Strain through a fine-mesh sieve lined with several layers of cheesecloth, then funnel back into the St-Germain bottle and refrigerate until ready to use, up to 3 months."
+        },
+        
         # Solutions:
         {
         "name":"Salt Solution",
@@ -241,6 +372,11 @@ def fill_ing(apps, schema_editor):
         {
         "name":"Champagne Acid Solution",
         "method":"Combine 94 grams of filtered water, 3 grams tartaric acid powder, 3 grams lactic acid powder in a glass bowl and stir until the powders have dissolved. Transfer to a glass dropper bottle or other glass container and refrigerate up to 6 months."
+        },
+        {
+        "name":"Phosphoric Acid Solution",
+        "note":"Phosphoric acid solution is responsible for most of the acidity in commercial sodas—that refreshing quality that makes us come back for more. It is an odorless and flavorless liquid on its own, so it does not contribute flavor, as many other acids do; instead, it adds a tongue-tingly tartness.",
+        "method":"A ready-to-use product by the name of Extinct Acid Phosphate can be purchased online at Art of Drink. If purchasing bulk phosphoric acid, it must be diluted since it is usually very concentrated."
         },
     ]
 

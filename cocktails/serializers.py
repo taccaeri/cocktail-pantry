@@ -118,7 +118,8 @@ class CocktailSerializer(serializers.ModelSerializer):
             "display_glassware",
             "notes",
             "method",
-            "variations"
+            "variations",
+            "reference"
             ]
         depth = 1
 
@@ -159,6 +160,7 @@ class IngredientSerializer(serializers.ModelSerializer):
         fields = [
             "id",
             "name",
+            "altname",
             "category",
             "display_category",
             "related",

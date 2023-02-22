@@ -8,10 +8,8 @@ INGREDIENT_CATEGORY = [
         ('rum', 'Rum'),
         ('agave', 'Agave'),
         ('whisky', 'Whisk(e)y'),
-        ('A-brandy', 'Aged Brandy'),
-        ('UA-brandy', 'Unaged Brandy'),
-        ('aquavit', 'Aquavit'),
-        ('vodka', 'Vodka'),
+        ('brandy', 'Brandy'),
+        ('misc', 'Miscellaneous'),
         )
     ),
     ('modifiers', (
@@ -47,17 +45,9 @@ UNIT_CHOICES = [
     ('dash', 'dash(es)'),
     ('barspoon', 'barspoon(s)'),
     ('pinch', 'pinch(es)'),
-    ('bunch', 'bunch(es)'),
-    ('slice', 'slice(s)'),
-    ('twist', 'twist'),
-    ('peel', 'peel'),
-    ('wheel', 'wheel'),
-    ('wedge', 'wedge'),
     ('rinse', 'rinse'),
     ('rim', 'rim'),
     ('drop', 'drop(s)'),
-    ('sprig', 'sprig'),
-    ('bqt', 'bouquet')
 ]
 
 GLASSWARE = [
@@ -67,7 +57,7 @@ GLASSWARE = [
     ('NN', 'Nick & Nora'),
     ('martini', 'Martini Glass'),
     ('collins', 'Collins Glass'),
-    ('beer', 'Beer Glass'),
+    ('pil', 'Pilsner Glass'),
     ('fizz', 'Fizz Glass'),
     ('julep', 'Julep Tin'),
     ('port', 'Port'),
@@ -75,7 +65,8 @@ GLASSWARE = [
     ('tiki', 'Tiki Mug'),
     ('HB', 'Highball'),
     ('snif', 'Snifter'),
-    ('tea', 'Tea Cup')
+    ('tea', 'Tea Cup'),
+    ('punch', 'Punch Bowl'),
 ]
 
 COCKTAIL_CATEGORY = [
@@ -146,6 +137,7 @@ class Cocktail(models.Model):
     notes = models.TextField(blank=True)
     method = models.TextField(blank=True)
     variations = models.TextField(blank=True)
+    reference = models.TextField(blank=True)
 
     def __str__(self):
         return self.name

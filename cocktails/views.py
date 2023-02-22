@@ -25,6 +25,8 @@ class CocktailViewSet(viewsets.ModelViewSet):
         ingredients = self.request.query_params.getlist("ingredient", [])
         # check box for substitutions
         show_related = self.request.query_params.get("show_related")
+        # will add toggle button to switch between results limited and not limited to selected ingredients
+        including_not_limited = self.request.query_params.get("including_not_limited") 
         
         if len(ingredients) == 0:
             queryset = self.filter_queryset(Cocktail.objects.all())
