@@ -45,7 +45,7 @@ class Migration(migrations.Migration):
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('quantity', models.FloatField(blank=True)),
                 ('unit', models.CharField(blank=True, choices=[('oz', 'ounce(s)'), ('ml', 'milliliter(s)'), ('g', 'gram(s)'), ('tsp', 'teaspoon(s)'), ('tbsp', 'tablespoon(s)'), ('dash', 'dash(es)'), ('barspoon', 'barspoon(s)'), ('pinch', 'pinch(es)'), ('rinse', 'rinse'), ('rim', 'rim'), ('drop', 'drop(s)')], max_length=15)),
-                ('recommended', models.CharField(blank=True, max_length=40)),
+                ('recommended', models.CharField(blank=True, max_length=100)),
                 ('optional', models.BooleanField(blank=True, null=True)),
                 ('cocktail', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='cocktails.cocktail')),
                 ('ingredient', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='cocktails.ingredient')),

@@ -152,7 +152,7 @@ class RecipeDetail(models.Model):
         choices=UNIT_CHOICES,
         blank=True
         )
-    recommended = models.CharField(max_length=40, blank=True)
+    recommended = models.CharField(max_length=100, blank=True)
     optional = models.BooleanField(blank=True, null=True)
 
 
