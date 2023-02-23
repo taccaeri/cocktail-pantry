@@ -97,11 +97,3 @@ def list_cocktail_categories(request):
             category_dict[ing[0]] = sub_cat_dict
 
     return Response(category_dict)
-
-
-# class CocktailListView(generics.ListAPIView):
-#
-#     serializer_class = CocktailSerializer
-#     queryset = Cocktail.objects.all()
-#     filter_backends = [filters.DjangoFilterBackend]
-#     filterset_class = CocktailFilter

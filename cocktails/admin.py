@@ -1,4 +1,4 @@
-# Register your models here.
+# Register models
 from django.contrib import admin
 
 from .models import Ingredient

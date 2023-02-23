@@ -67,7 +67,7 @@ class CocktailSerializer(serializers.ModelSerializer):
         # the variation field is a JSON object that has been serialized to a string
         # do a json.loads here to deserialize it 
         if(type(item.variations == str) and item.variations != ''):
-         #   print(item.name)
+            # print(item.name)
             return json.loads(item.variations)
 
     def create(self, validated_data):
@@ -147,11 +147,11 @@ class IngredientSerializer(serializers.ModelSerializer):
 
     def get_category_parent(self, ing):
         for choice_tuple in INGREDIENT_CATEGORY:
-            if type(choice_tuple[1]) is tuple: #checking for nested choices
+            if type(choice_tuple[1]) is tuple: # Checking for nested choices
                 for nested_choice in choice_tuple[1]:
                     for category in ing.category:
                         if nested_choice[0] == category and (choice_tuple[0] not in ing.category):
-                            ing.category.insert(0, choice_tuple[0]) #prepending parent choice to category list
+                            ing.category.insert(0, choice_tuple[0]) # Prepending parent choice to category list
 
         return ing.category
 
