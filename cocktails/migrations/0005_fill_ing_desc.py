@@ -197,7 +197,7 @@ def fill_ing(apps, schema_editor):
 
         {
         "name":"Orange",
-        "rel":["Fresh Orange Juice", "Orange Twist", "Orange Wheel", "Orange Peel", "Orange Slice"]
+        "rel":["Fresh Orange Juice", "Orange Twist", "Orange Wheel", "Orange Peel", "Orange Slice", "Orange Crescent"]
         },
         {
         "name":"Fresh Orange Juice",
@@ -217,6 +217,10 @@ def fill_ing(apps, schema_editor):
         },
         {
         "name":"Orange Slice",
+        "rel":["Orange"]
+        },
+        {
+        "name":"Orange Crescent",
         "rel":["Orange"]
         },
 

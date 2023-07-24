@@ -11,7 +11,7 @@ def populate_recipedetail(apps,schema_editor):
     db_alias = schema_editor.connection.alias
 
     recipe_list = [
-        # {"coc":"", "ing":"", "quant":, "unit":"", "rec":""},
+        # {"coc":"", "ing":"", "quant":, "unit":"", "rec":"", "opt":""},
 
         # Gin Shaken: 
         {"coc":"Bella Luna", "ing":"Plymouth Gin", "quant":2, "unit":"oz"}, 
@@ -19,6 +19,19 @@ def populate_recipedetail(apps,schema_editor):
         {"coc":"Bella Luna", "ing":"Creme Yvette", "quant":0.5, "unit":"oz"}, 
         {"coc":"Bella Luna", "ing":"Fresh Lemon Juice", "quant":0.75, "unit":"oz"}, 
         {"coc":"Bella Luna", "ing":"Simple Syrup", "quant":1, "unit":"tsp"}, 
+
+        {"coc":"Cadiz Collins", "ing":"Orange Wheel", "quant":1,},
+        {"coc":"Cadiz Collins", "ing":"Fee Brothers Whiskey Barrel-Aged Bitters", "quant":3, "unit":"dash"},
+        {"coc":"Cadiz Collins", "ing":"Plymouth Gin", "quant":2, "unit":"oz"},
+        {"coc":"Cadiz Collins", "ing":"Amontillado Sherry", "quant":0.75, "unit":"oz", "rec":"Lustau Amontillado Sherry"},
+        {"coc":"Cadiz Collins", "ing":"Fresh Lemon Juice", "quant":0.5, "unit":"oz"},
+        {"coc":"Cadiz Collins", "ing":"Demerara Syrup", "quant":0.5, "unit":"oz"},
+        {"coc":"Cadiz Collins", "ing":"Orange Crescent", "quant":1, "opt":True},
+
+        {"coc":"20th Century", "ing":"London Dry Gin", "quant":1.5, "unit":"oz", "rec":"Beefeater"},
+        {"coc":"20th Century", "ing":"Lilet Blanc", "quant":0.75, "unit":"oz"},
+        {"coc":"20th Century", "ing":"White Creme de Cacao", "quant":0.75, "unit":"oz"},
+        {"coc":"20th Century", "ing":"Fresh Lemon Juice", "quant":0.75, "unit":"oz"},
   
         # Gin Stirred: 
         {"coc":"European Union", "ing":"Old Tom Gin", "quant":1.5, "unit":"oz", "rec":"Hayman's Old Tom Gin"}, 
@@ -78,7 +91,7 @@ def populate_recipedetail(apps,schema_editor):
   
         {"coc":"19th Century", "ing":"Bourbon", "quant":1.5, "unit":"oz", "rec":"Woodford Reserve Bourbon"}, 
         {"coc":"19th Century", "ing":"Lillet Rouge", "quant":0.75, "unit":"oz"}, 
-        {"coc":"19th Century", "ing":"Creme de Cacao", "quant":0.75, "unit":"oz"}, 
+        {"coc":"19th Century", "ing":"White Creme de Cacao", "quant":0.75, "unit":"oz"}, 
         {"coc":"19th Century", "ing":"Fresh Lemon Juice", "quant":0.75, "unit":"oz"}, 
   
         # Whisk(e)y Stirred: 
@@ -132,6 +145,11 @@ def populate_recipedetail(apps,schema_editor):
         {"coc":"Celebrate", "ing":"Cinnamon Syrup", "quant":0.25, "unit":"oz"}, 
         {"coc":"Celebrate", "ing":"Champagne Acid Solution", "quant":0.5, "unit":"tsp"}, 
         {"coc":"Celebrate", "ing":"Dry Champagne", "quant":4, "unit":"oz"}, 
+        
+        {"coc":"Airmail", "ing":"Spanish Rum", "quant":1, "unit":"oz", "rec":"Ron Del Barrilto 3-Star Rum"},
+        {"coc":"Airmail", "ing":"Fresh Lime Juice", "quant":0.5, "unit":"oz"},
+        {"coc":"Airmail", "ing":"Honey Syrup", "quant":0.5, "unit":"oz"},
+        {"coc":"Airmail", "ing":"Dry Champagne"},
   
         # Fortified Wine Cocktails: 
         {"coc":"Derby Girl", "ing":"Nectarine Slice", "quant":3}, 

@@ -15,7 +15,7 @@ def populate_ingredient(apps, schema_editor):
 
         # -- Gin 
         {"name":"Plymouth Gin", "cat":"gin"}, 
-        # {"name":"London Dry Gin", "cat":"gin"}, 
+        {"name":"London Dry Gin", "cat":"gin"}, 
         {"name":"Old Tom Gin", "cat":"gin"}, 
         # {"name":"Genever", "cat":"gin"}, 
         # {"name":"American Gin", "cat":"gin"}, 
@@ -101,7 +101,7 @@ def populate_ingredient(apps, schema_editor):
         {"name":"Sloe Berry Liqueur", "alt":["Pacharan", "Sloe Gin"],  "cat":"liqueur"}, 
         # {"name":"Caraway Liqueur", "cat":"liqueur"},
         {"name":"Creme Yvette", "cat":"liqueur"}, 
-        {"name":"Creme de Cacao", "cat":"liqueur"}, 
+        {"name":"White Creme de Cacao", "cat":"liqueur"}, 
         {"name":"Creme de Menthe", "cat":"liqueur"}, 
         {"name":"Creme de Peche", "cat":"liqueur"},
         # {"name":"Creme de Fraise", "cat":"liqueur"},
@@ -187,6 +187,7 @@ def populate_ingredient(apps, schema_editor):
         {"name":"Hopped Grapefruit Bitters", "cat":"bitters"}, 
         {"name":"Celery Bitters", "cat":"bitters"}, 
         {"name":"Castilian Bitters", "cat":"bitters"},
+        {"name":"Fee Brothers Whiskey Barrel-Aged Bitters"},
   
 
         # -- Emulsifiers: 
@@ -232,6 +233,7 @@ def populate_ingredient(apps, schema_editor):
         {"name":"Orange Wheel"}, 
         {"name":"Orange Peel"},
         {"name":"Orange Slice"},
+        {"name":"Orange Crescent"},
 
         {"name":"Grapefruit", "cat":"fresh"}, 
         {"name":"Fresh Grapefruit Juice"}, 

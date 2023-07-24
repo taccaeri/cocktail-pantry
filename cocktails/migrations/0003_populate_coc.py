@@ -13,7 +13,9 @@ def populate_cocktail(apps, schema_editor):
         # {"name":"", "cat":"", "bar":"", "glass":""},
 
         # Gin Shaken:
-        {"name":"Bella Luna", "cat":"gin-SH", "bar":"Brian Miller", "glass":"port"},   
+        {"name":"Bella Luna", "cat":"gin-SH", "bar":"Brian Miller", "glass":"port"},
+        {"name":"Cadiz Collins", "cat":"gin-SH", "bar":"Alex Day", "glass":"HB"},
+        {"name":"20th Century", "cat":["classic", "gin-SH"], "glass":"coupe"},
 
         # Gin Stirred:
         {"name":"European Union", "cat":"gin-ST", "bar":"Alex Day", "glass":"coupe"},
@@ -49,6 +51,7 @@ def populate_cocktail(apps, schema_editor):
         {"name":"The Field Marshall", "cat":["OF-V", "SC"], "bar": "Alex Day", "glass":"flute"},
         {"name":"Pretty Wings", "cat":["OF-V", "SC"], "bar": "Devon Tarby", "glass":"flute"},
         {"name":"Celebrate", "cat":["OF-V", "SC"], "bar": "Devon Tarby", "glass":"flute"},
+        {"name":"Airmail", "cat":["classic", "SC"], "glass":"flute"},
 
         # Fortified Wine Cocktails:
         {"name":"Derby Girl", "cat":"FWC", "bar":"Jillian Vose", "glass":"julep"}, 

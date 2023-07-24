@@ -25,6 +25,20 @@ def fill_coc(apps, schema_editor):
         "met":"Shake all the ingredients with ice, then strain into a port glass. No garnish.",
         "ref":"Death & Co: Modern Classic Cocktails, Pg 154"
         },
+        {
+        "name":"Cadiz Collins",
+        "rel":"",
+        "note":"",
+        "met":"In a shaker, muddle the orange wheel and bitters. Add the remaining ingredients (except the club soda) and shake with ice, then strain into a highball glass filled with ice cubes. Top with club soda. Garnish with the orange crescent and serve with a straw.",
+        "ref":"Death & Co: Modern Classic Cocktails, Pg 154"
+        },
+        {
+        "name":"20th Century",
+        "rel":"",
+        "met":"Shake all the ingredients with ice, then double strain into a coupe. No garnish.",
+        "var":"Substitute Lilet blanc with Cocchi Americano. Originally used Kina Lilet, which was discontinued in 1986.",
+        "ref":"Death & Co: Modern Classic Cocktails, Pg 139"
+        },
 
         # Gin Stirred:
         {
@@ -144,6 +158,12 @@ def fill_coc(apps, schema_editor):
         "note":"While the components of this cocktail other than the Champagne take up little volume, they enhance the main spirit by amplifying flavors it already possesses: stone fruit, breadiness, nuttiness, and spice. The Champagne acid, a combination of tartaric and lactic acid, enhances the tang of dry Champagne.",
         "met":"Stir all the ingredients (except the Champagne) over ice, then strain into a chilled flute. Pour in the Champagne and quickly dip the barspoon into the glass to mix gently. No garnish.",
         "ref":"Cocktail Codex: Fundamentals, Formulas, Evolutions, Pg 29"
+        },
+        {
+        "name":"Airmail",
+        "rel":"",
+        "met":"Shake all the ingredients (except the champagne) with ice, then strain into a flute. Top with champagne. No garnish.",
+        "ref":"Death & Co: Modern Classic Cocktails, Pg 139"
         },
 
         # Fortified Wine Cocktails:
