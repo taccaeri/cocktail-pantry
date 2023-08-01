@@ -41,15 +41,19 @@ class CocktailViewSet(viewsets.ModelViewSet):
                     for i in ingredient.related.all():
                         ing_expanded.append(i.id)
 
-            # this creates a list of ingredients we DO NOT want in our dataset
-            # exclude optional ingredients here to allow them into the final filter
-            rec_filtered = RecipeDetail.objects.exclude(ingredient__id__in=ing_expanded).exclude(optional = True)
-            id_list = rec_filtered.values_list("cocktail__id")
-            # this creates a list of cocktails that we CAN NOT create
-            inverse = Cocktail.objects.filter(pk__in=id_list)
-            # subtract the list of cocktails we CAN NOT create from the full list of cocktails
-            # to find the list of cocktails that we can make
-            queryset = Cocktail.objects.all().difference(inverse)
+            if including_not_limited == "false":
+                # this creates a list of ingredients we DO NOT want in our dataset
+                # exclude optional ingredients here to allow them into the final filter
+                rec_filtered = RecipeDetail.objects.exclude(ingredient__id__in=ing_expanded).exclude(optional = True)
+                id_list = rec_filtered.values_list("cocktail__id")
+                # this creates a list of cocktails that we CAN NOT create
+                inverse = Cocktail.objects.filter(pk__in=id_list)
+                # subtract the list of cocktails we CAN NOT create from the full list of cocktails
+                # to find the list of cocktails that we can make
+                queryset = Cocktail.objects.all().difference(inverse)
+            else: 
+                # this creates a list of cocktails including user supplied list of ingredient objects
+                queryset = Cocktail.objects.filter(ingredients__id__in=ing_expanded)
 
         page = self.paginate_queryset(queryset)
         if page is not None:
