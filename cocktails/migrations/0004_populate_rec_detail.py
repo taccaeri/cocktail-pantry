@@ -29,7 +29,7 @@ def populate_recipedetail(apps,schema_editor):
         {"coc":"Cadiz Collins", "ing":"Orange Crescent", "quant":1, "opt":True},
 
         {"coc":"20th Century", "ing":"London Dry Gin", "quant":1.5, "unit":"oz", "rec":"Beefeater"},
-        {"coc":"20th Century", "ing":"Lilet Blanc", "quant":0.75, "unit":"oz"},
+        {"coc":"20th Century", "ing":"Lillet Blanc", "quant":0.75, "unit":"oz"},
         {"coc":"20th Century", "ing":"White Creme de Cacao", "quant":0.75, "unit":"oz"},
         {"coc":"20th Century", "ing":"Fresh Lemon Juice", "quant":0.75, "unit":"oz"},
   
@@ -149,7 +149,7 @@ def populate_recipedetail(apps,schema_editor):
         {"coc":"Airmail", "ing":"Spanish Rum", "quant":1, "unit":"oz", "rec":"Ron Del Barrilto 3-Star Rum"},
         {"coc":"Airmail", "ing":"Fresh Lime Juice", "quant":0.5, "unit":"oz"},
         {"coc":"Airmail", "ing":"Honey Syrup", "quant":0.5, "unit":"oz"},
-        {"coc":"Airmail", "ing":"Dry Champagne"},
+        {"coc":"Airmail", "ing":"Dry Champagne", "quant":4},
   
         # Fortified Wine Cocktails: 
         {"coc":"Derby Girl", "ing":"Nectarine Slice", "quant":3}, 
